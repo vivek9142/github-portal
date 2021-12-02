@@ -1,10 +1,13 @@
 import { Formik, Form, Field } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-import changeQuery from "../redux/action/searchActionCr";
+import {changeQuery} from "../redux/actionCreator/searchActionCr";
 
 const MainForm = (props) => {
   const dispatch = useDispatch();
   const { query, per_page, order } = useSelector((state) => state.query);
+  
+  if(!(query && per_page && order)) return <></>
+  
   return (
     <Formik
       initialValues={{

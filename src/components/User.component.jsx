@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {useDispatch } from "react-redux";
+import requestUserData from '../redux/actionCreator/userActionCr';
 
-const UserTable = ({ data }) => {
+const User = (props) => {
+  const dispatch = useDispatch();
+  const {data} = props;
   return (
     <>
-      <Link to={`/${data.login}`} className="user--link-container">
-        <div className="user">
+      {/* <Link to={`/${data.login}`} className="user--link-container"> */}
+      <div onClick={()=>{props.history.push('/');dispatch(requestUserData(data.login))}}>
+        <div className="user" >
           <div className="user--title-container">
             <h2 className="user--title-container">{data.login}</h2>
           </div>
@@ -18,9 +22,10 @@ const UserTable = ({ data }) => {
             />
           </div>
         </div>
-      </Link>
+        </div>
+      {/* </Link> */}
     </>
   );
 };
 
-export default UserTable;
+export default User;

@@ -1,9 +1,9 @@
-import actionsType from "./usersAction";
+import actionsType from "../action/usersAction";
 import axios from "axios";
 
 const requestUsersData = ({ query, per_page, order }) => {
   return async (dispatch) => {
-    dispatch({ type: actionsType.GET_REQ_PENDING });
+    dispatch({ type: actionsType.GET_USERS_PENDING });
 
     await axios
       .get(
@@ -11,11 +11,11 @@ const requestUsersData = ({ query, per_page, order }) => {
       )
       .then(
         (res) => {
-          dispatch({ type: actionsType.GET_REQ_SUCCESS, payload: res.data });
+          dispatch({ type: actionsType.GET_USERS_SUCCESS, payload: res.data });
         },
         (err) => {
           console.log(err);
-          dispatch({ type: actionsType.GET_REQ_REJECTED, payload: err });
+          dispatch({ type: actionsType.GET_USERS_REJECTED, payload: err });
         }
       );
   };

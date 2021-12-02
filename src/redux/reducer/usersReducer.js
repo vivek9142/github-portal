@@ -3,28 +3,28 @@ import actionsType from "../action/usersAction";
 const initialState = {
   error: null,
   loading: false,
-  post: null
+  users: null
 };
 
 let usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionsType.GET_REQ_PENDING:
+    case actionsType.GET_USERS_PENDING:
       return {
         error: null,
         loading: true,
-        post: null
+        users: null
       };
-    case actionsType.GET_REQ_SUCCESS:
+    case actionsType.GET_USERS_SUCCESS:
       return {
         error: false,
         loading: false,
-        post: action.payload
+        users: action.payload
       };
-    case actionsType.GET_REQ_REJECTED:
+    case actionsType.GET_USERS_REJECTED:
       return {
         error: action.payload,
         loading: false,
-        post: null
+        users: null
       };
     default:
       return state;
