@@ -38,7 +38,7 @@ let userReducer = (state = initialState, action) => {
         user: null
       };
     case actionsType.RESET_USER:
-        return initialState
+        return initialState;
     
     default:
       return state;

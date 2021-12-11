@@ -11,6 +11,7 @@ const requestUserData = ( user,external=false ) => {
       )
       .then(
         (res) => {
+          console.log(res);
           if(external)
           dispatch({ type: actionsType.GET_USER_SUCCESS_EXTERNAL, payload: res.data });
           else dispatch({ type: actionsType.GET_USER_SUCCESS, payload: res.data });
@@ -24,4 +25,6 @@ const requestUserData = ( user,external=false ) => {
   };
 };
 
-export default requestUserData;
+const resetUserData = () => ({type:actionsType.RESET_USER});
+
+export  {requestUserData,resetUserData};

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import User from "./User.component";
+import User from "../User/User.component";
 import { withRouter } from "react-router";
 
 const UserTable = (props) => {

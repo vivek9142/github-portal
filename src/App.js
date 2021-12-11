@@ -1,27 +1,23 @@
 import "./components/styles.css";
-import MainForm from "./components/MainForm.component.jsx";
-import UserTable from "./components/UserTable.component";
-import { useSelector } from "react-redux";
+
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import UserPage from "./pages/User.Page";
+import UserPage from "./pages/UserPage/User.page";
+import HomePage from "./pages/HomePage/HomePage.page";
+import UsersPage from "./pages/UsersPage/Users.page";
 
 export default function App() {
-  const user = useSelector((state) => state.userData);
 
   return (
     <BrowserRouter>
-      <div className="App">
-        <h1>Hello CodeSandbox</h1>
-        <h2>Start editing to see some magic happen!</h2>
-        <MainForm />
-        <UserTable />
-        {user.user && !user.external  ? <UserPage user={user.login} internal/> : <></>}
-      </div>
+      <div className="App">        
+      
 
       <Switch>
-        <Route path="/" exact />
+        <Route path="/" component={HomePage} exact />
+        <Route path='/users/' component={UsersPage}/>
         <Route path="/:name" render={(props)=><UserPage external {...props}/>} exact />
       </Switch>
+      </div>
     </BrowserRouter>
   );
 }

@@ -1,13 +1,17 @@
 import { Formik, Form, Field } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-import {changeQuery} from "../redux/actionCreator/searchActionCr";
-
+import {changeQuery} from "../../redux/actionCreator/searchActionCr";
+import { resetUserData } from "../../redux/actionCreator/userActionCr";
 const MainForm = (props) => {
+  
   const dispatch = useDispatch();
   const { query, per_page, order } = useSelector((state) => state.query);
-  
-  if(!(query && per_page && order)) return <></>
-  
+
+  const redirectFunc = () => {
+    if(props.onRedirect) props.onRedirect();
+  }
+  if(!query && !per_page && !order) return <></>
+  console.log(query);
   return (
     <Formik
       initialValues={{
@@ -15,7 +19,7 @@ const MainForm = (props) => {
         per_page: per_page,
         order: order
       }}
-      onSubmit={(val) => dispatch(changeQuery(val))}
+      onSubmit={(val) => {dispatch(resetUserData());dispatch(changeQuery(val));redirectFunc();}}
     >
       {(formik) => (
         <Form>

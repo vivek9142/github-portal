@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch } from "react-redux";
-import requestUserData from '../redux/actionCreator/userActionCr';
+import {requestUserData} from '../../redux/actionCreator/userActionCr';
 
 const User = (props) => {
   const dispatch = useDispatch();
@@ -8,7 +8,7 @@ const User = (props) => {
   return (
     <>
       {/* <Link to={`/${data.login}`} className="user--link-container"> */}
-      <div onClick={()=>{props.history.push('/');dispatch(requestUserData(data.login))}}>
+      <div onClick={()=>{props.history.push('/users/');dispatch(requestUserData(data.login))}}>
         <div className="user" >
           <div className="user--title-container">
             <h2 className="user--title-container">{data.login}</h2>

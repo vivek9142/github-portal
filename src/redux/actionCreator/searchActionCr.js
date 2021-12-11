@@ -1,6 +1,6 @@
 import actionsType from "../action/searchAction";
 import requestUsersData from "./usersActionCr";
-import requestUserData from "./userActionCr";
+import {requestUserData} from "./userActionCr";
 
 const changeQuery = ({query,page=0,per_page=10,order='Asc'}) => {
   return (dispatch) => {
