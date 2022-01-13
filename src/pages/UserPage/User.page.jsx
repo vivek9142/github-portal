@@ -3,9 +3,24 @@ import { useSelector,useDispatch } from "react-redux";
 import {changeQueryWithUser} from '../../redux/actionCreator/searchActionCr';
 import {resetUserData} from '../../redux/actionCreator/userActionCr';
 import axios from 'axios';
+import { Container,Avatar, List,ListItem,ListItemAvatar,Button,Divider,Typography,Grid,ListItemText, ListSubheader,Accordion,AccordionSummary,AccordionDetails } from "@material-ui/core";
+import {ExpandLess,ExpandMore} from '@material-ui/icons';
+import PersonIcon from '@material-ui/icons/Person';
+import { makeStyles } from "@material-ui/core";
 
+const useStyles = makeStyles(theme => ({
+  ListHeader:{
+    fontSize:'1.5rem'
+  },
+  avatar:{
+    width:'15rem',
+    height:'15rem',
+    borderRadius:'1rem'
+  }
+}));
 const UserPage = (props) => {
-  console.log(props);
+  
+  const classes = useStyles();
 
   const dispatch = useDispatch();
   const [userRepo,setUserRepo] =  React.useState([]);
@@ -14,12 +29,10 @@ const UserPage = (props) => {
     user = props.match.params.name;
   }
   else user = props.user;
-  console.log(user);
   React.useLayoutEffect(() => {
     console.log(props.external);
     if(props.external){
       dispatch(changeQueryWithUser({query:user},props.external));
-      
     }
     axios.get(`https://api.github.com/users/${user}/repos`).then(res => setUserRepo(res.data));
 
@@ -31,24 +44,29 @@ const UserPage = (props) => {
   const userData =  useSelector(state => state.userData.user);
   
   const repoArray = userRepo.map(data => (
+      // <List component='nav' subheader={
+      //   <ListSubheader component='div' id='nested-list-subheader'>
+          
+      //   </ListSubheader>
+      // }>
+
+      // </List>  
     <div className="user__repo--item" key={data.id}>
-      <div className="user__repo--title">
-        <h4 className="user__repo--heading">{data.name}</h4>
-      </div>
-      <div className="user__repo--body">
-        <div className="user__repo--meta">
-          <span className="user__repo--lang">Language: {data.language}</span>
-        </div>
-        <div className="user__repo--description_container">
-          <p className="user__repo--description">
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMore/>} aria-controls={`panela${data.id}-content`}
+          id={`panela${data.id}-header`}>
+          <Typography heading='h6'>{data.name}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Language: {data.language}
             {data.description}
-          </p>
-        </div>
-        <div className="user__repo--link--item">
-          <a href={data.html_url} target="_blank"
+            <a href={data.html_url} target="_blank"
             rel="noreferrer" className="user__repo--link">Visit Repo</a>
-        </div>
-      </div>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      
     </div>
   ))
   if (!userData) {
@@ -56,37 +74,75 @@ const UserPage = (props) => {
   }
   return (
     <>
-      {/* <h1>hi</h1> */}
-      {/* <a href={userData.html_url} className="user--link-container"> */}
+      
       <div className="user">
-        <div className="user--title-container">
-          <h2 className="user--title-container">{userData.name}</h2>
-        </div>
-        <div className="user--bio-container">
-          <p className="user--bio">{userData.bio}</p>
-        </div>
-        <div className="user--img-container" style={{ width: "10rem" }}>
-          <img
-            src={userData.avatar_url}
-            style={{ width: "100%" }}
-            alt=""
-            className="user--img"
-          />
-        </div>
+        
+      <List component='nav' className="user--title-container" subheader={
+        <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
+          {userData.name}
+        </ListSubheader>
+      }>
+        <ListItem>
+          <Grid container>
+            <Grid item xs={6}>
+                <ListItemAvatar >
+              <Avatar
+                   className={classes.avatar} src={userData.avatar_url}
+                // style={{ width: "100%" }}
+                alt=""
+                // className="user--img"
+              />
+              </ListItemAvatar>
+              <Container>
+              <Button variant="contained" target="_blank" href={`${userData.html_url}`}>
+                Visit Github
+              </Button>
+              </Container>
+            </Grid>
 
-        <div className="user--visit-github">
-          <div className="">followers: {userData.followers}</div>
-          <div className="">following: {userData.following}</div>
-          <a
-            href={`${userData.html_url}`}
-            target="_blank"
-            rel="noreferrer"
-            className="user--visit-github-link"
-          >
-            Visit Github
-          </a>
-        </div>
+            <Grid item xs={6}>
+                <List>
+                  <ListItem>
+                  <ListItemText>Username </ListItemText> <ListItemText>{userData.login}</ListItemText>
+                  </ListItem>
+
+                  <Divider />
+
+                  <ListItem>
+                    <ListItemText>Followers </ListItemText>
+                   <ListItemText>{userData.followers}</ListItemText>
+                  </ListItem>
+
+                  <Divider />
+
+                  <ListItem>
+                  <ListItemText>Following </ListItemText>
+                  <ListItemText>{userData.following}</ListItemText>
+                  </ListItem>
+
+                  <Divider />
+
+                  <ListItem>
+                      <Grid container>
+                        <Grid item xs={4}>
+                        <ListItemText>About </ListItemText>
+                        </Grid>
+                        <Grid item xs={8}>
+                        <ListItemText>{userData.bio}</ListItemText>
+                        </Grid>
+                      </Grid>
+                  
+                  
+                  </ListItem>
+                </List>
+                
+            </Grid>
+          </Grid>
+          
+        </ListItem>
+      </List>
         <div className="user__repo--container">
+              <Typography heading='h4'>Repositories</Typography>
               {repoArray}
         </div>
       </div>

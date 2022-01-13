@@ -9,15 +9,19 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">        
-      
+      {/* <Container  maxWidth='lg'> */}
+          <div className="App">        
+            {/* <AppBar position='relative'>
+              <Typography variant='h6' color='inherit' noWrap>GitHub Portal</Typography>
+            </AppBar> */}
 
-      <Switch>
-        <Route path="/" component={HomePage} exact />
-        <Route path='/users/' component={UsersPage}/>
-        <Route path="/:name" render={(props)=><UserPage external {...props}/>} exact />
-      </Switch>
-      </div>
+          <Switch>
+            <Route path="/" component={HomePage} exact />
+            <Route path='/users/' exact component={UsersPage}/>
+            <Route path="/users/:name" exact  render={(props)=><UserPage external {...props}/>} />
+          </Switch>
+          </div>
+        {/* </Container>  */}
     </BrowserRouter>
   );
 }
