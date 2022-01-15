@@ -1,3 +1,16 @@
 .usersPage__container{
-    margin: 3rem;   
+    margin-top: 3rem;   
+}
+.usersPage_form{
+    position: sticky;
+    top:3rem;
+    z-index: 11;
+    background-color: #fff;
+}
+.usersPage__table{
+    height: 80vh;
+    overflow-y: scroll;
+    position: sticky;
+    top:3rem;
+    z-index: 9;
 }

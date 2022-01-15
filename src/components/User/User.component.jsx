@@ -15,24 +15,22 @@ const User = (props) => {
   const dispatch = useDispatch();
   const {data} = props;
 
+  const clickHandler = () => {props.history.push('/users/');dispatch(requestUserData(data.login));}
   
   return (
     <>
-      {/* <Link to={`/${data.login}`} className="user--link-container"> */}
-      <Card className={classes.cardMargin} onClick={()=>{props.history.push('/users/');dispatch(requestUserData(data.login))}}>
+      <Card className={classes.cardMargin} onClick={clickHandler}>
         <div className="user" >
 
             <Grid  container>
               <Grid item xs={4}>
               <CardMedia>
-            {/* <div className="user--img-container" style={{ width: "10rem" }}> */}
               <img
                 src={data.avatar_url}
                 style={{ width: "100%" ,height:"100%",objectFit:'cover'}}
                 alt=""
                 className="user--img"
               />
-            {/* </div> */}
             </CardMedia>
               </Grid>
               <Grid item xs={8}>
@@ -48,7 +46,6 @@ const User = (props) => {
           
         </div>
         </Card>
-      {/* </Link> */}
     </>
   );
 };

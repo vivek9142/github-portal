@@ -25,7 +25,7 @@ const UsersPage = (props) => {
                 </Grid>
 
                 <Grid item md={9} sm={7}>
-                    <div className="usersPage__table">
+                    <div className="usersPage__table--contents">
                     {user.user && !user.external  ? <UserPage user={user.user.login} internal/> : <></>}
                     </div>
                 </Grid>
