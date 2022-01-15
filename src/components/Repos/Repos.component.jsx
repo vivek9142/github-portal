@@ -8,21 +8,33 @@ import { resetUserData } from '../../redux/actionCreator/userActionCr';
 
 const  Repos = props => {
     const dispatch = useDispatch(); 
-    const [userRepo,setUserRepo] =  useState([]);
+    const [state,setState] =  useState({userRepo:[],clicked:false});
 
     useLayoutEffect(() => {
-        console.log(props.external);
         if(props.external){
           dispatch(changeQueryWithUser({query:props.user},props.external));
         }
-        axios.get(`https://api.github.com/users/${props.user}/repos`).then(res => setUserRepo(res.data));
+        axios.get(`https://api.github.com/users/${props.user}/repos`).then(res => setState(state => ({...state,userRepo:res.data})));
     
         return ()=>{
           dispatch(resetUserData());
         }
       }, [props.external,dispatch,props.user]);
 
-    const repoArray = userRepo.map(data => (
+      let slicedArray,mappingArray;
+
+      const clickHandler = () =>{
+        setState(state => ({...state,clicked:true}));
+      }
+
+      
+      if(state.userRepo.length>4 && !state.clicked){
+        slicedArray = state.userRepo.slice(0,4);
+      }
+
+       mappingArray = state.userRepo.length>4 && !state.clicked ? slicedArray : state.userRepo;
+
+    const repoArray = mappingArray.map(data => (
         <div className="user__repo--item" key={data.id}>
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMore/>} aria-controls={`panela${data.id}-content`}
@@ -48,6 +60,7 @@ const  Repos = props => {
       return (
           <>
           {repoArray}
+          {state.userRepo.length > 4 && !state.clicked ? (<button onClick={clickHandler}>View All Repos</button>):(<></>)}
           </>
       )
 
