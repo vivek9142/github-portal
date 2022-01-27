@@ -7,6 +7,9 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles(theme => ({
   cardMargin:{
     marginBottom:'1rem'
+  },
+  user__title_container:{
+    wordWrap:'break-word'
   }
 }));
 
@@ -27,7 +30,7 @@ const User = (props) => {
               <CardMedia>
               <img
                 src={data.avatar_url}
-                style={{ width: "100%" ,height:"100%",objectFit:'cover'}}
+                style={{ width: "5rem" ,height:"7rem",objectFit:'cover'}}
                 alt=""
                 className="user--img"
               />
@@ -36,7 +39,7 @@ const User = (props) => {
               <Grid item xs={8}>
               <CardContent>
             <div className="user--title-container">
-            <h2 className="user--title-container">{data.login}</h2>
+            <h2 className={classes.user__title_container}>{data.login}</h2>
             </div>
             </CardContent>
               </Grid>

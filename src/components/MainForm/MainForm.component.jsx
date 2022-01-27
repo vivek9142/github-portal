@@ -1,5 +1,5 @@
-import { Formik, Form, Field } from "formik";
-import { Grid,Container,Typography, Button } from "@material-ui/core";
+import { Formik, Form, } from "formik";
+import { Grid,Button } from "@material-ui/core";
 
 import { useSelector, useDispatch } from "react-redux";
 import {changeQuery} from "../../redux/actionCreator/searchActionCr";
@@ -46,19 +46,6 @@ const MainForm = (props) => {
               </Button>
               </Grid>
           </Grid>
-          {/* <Field
-            type="text"
-            name="query"
-            placeholder="Enter Query"
-            {...props}
-          /> */}
-          
-          {/* <Field type="number" name="per_page" placeholder="Total Results" />
-          <Field as="select" name="order">
-            <option value="Asc">Asc</option>
-            <option value="Desc">Desc</option>
-          </Field> */}
-          {/* <input type="submit" /> */}
         </Form>
       )}
     </Formik>

@@ -6,7 +6,8 @@ import Repos from "../../components/Repos/Repos.component";
 
 const useStyles = makeStyles(theme => ({
   ListHeader:{
-    fontSize:'1.5rem'
+    fontSize:'1.5rem',
+    position:'relative'
   },
   avatar:{
     width:'15rem',
@@ -36,7 +37,7 @@ const UserPage = (props) => {
       
       <div className="user">
         
-      <List component='nav' className="user--title-container" subheader={
+      <List className="user--title-container" subheader={
         <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
           {userData.name}
         </ListSubheader>

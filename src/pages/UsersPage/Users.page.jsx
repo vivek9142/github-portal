@@ -29,12 +29,8 @@ const UsersPage = (props) => {
                     {user.user && !user.external  ? <UserPage user={user.user.login} internal/> : <></>}
                     </div>
                 </Grid>
-
                 
             </Grid>
-        
-            
-        
         
         </Container>
         </div>
