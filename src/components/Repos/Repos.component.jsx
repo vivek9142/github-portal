@@ -1,12 +1,13 @@
 import { useLayoutEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import {Accordion,AccordionSummary,AccordionDetails,Typography} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box} from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import { changeQueryWithUser } from '../../redux/actionCreator/searchActionCr';
 import { resetUserData } from '../../redux/actionCreator/userActionCr';
 
 const  Repos = props => {
+    const classes = useStyles();
     const dispatch = useDispatch(); 
     const [state,setState] =  useState({userRepo:[],clicked:false});
 
@@ -42,12 +43,30 @@ const  Repos = props => {
               <Typography heading='h6'>{data.name}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                Language: {data.language}
-                {data.description}
-                <a href={data.html_url} target="_blank"
+                <Box display='flex' width='100%' className={classes.box__container}>
+                  <Box mr={1} className={classes.lang__container}>
+                  <Typography component='h6'  display='inline'>Language:</Typography>
+                  <Typography component='p' display='inline'>{data.language?data.language:'Not Specified'}</Typography>
+                  </Box>
+
+                  <Box mr={1} className={classes.desc__container}>
+                  <Typography component='h6' display='inline'>Description:</Typography>
+                  <Typography component='p' display='inline'>{data.description?data.description:'Not Specified'}</Typography>
+                  </Box>
+
+                  <Box>
+                  <Typography component='p'>
+                  <a href={data.html_url} target="_blank"
                 rel="noreferrer" className="user__repo--link">Visit Repo</a>
-              </Typography>
+                    </Typography>
+                  </Box>
+                  
+                </Box>
+              
+                
+                
+                
+              
             </AccordionDetails>
           </Accordion>
         </div>
@@ -67,3 +86,12 @@ const  Repos = props => {
 };
 
 export default Repos;
+
+const useStyles = makeStyles(()=>({
+  box__container:{
+    margin:'0 1rem',
+    justifyContent:'space-between'
+  },
+  lang__container:{flexBasis:'12rem'},
+  desc__container:{flexBasis:'25rem'}
+}));
