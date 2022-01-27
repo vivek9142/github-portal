@@ -63,10 +63,6 @@ const  Repos = props => {
                   
                 </Box>
               
-                
-                
-                
-              
             </AccordionDetails>
           </Accordion>
         </div>

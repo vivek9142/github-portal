@@ -19,9 +19,7 @@ const HomePage = (props) => {
     }
     return(
         <div className="homepage__container">
-            <Grid container direction="column" justifyContent="center" alignItems="center"
-            // style={{'placeItems':'center'}}
-            >
+            <Grid container direction="column" justifyContent="center" alignItems="center">
                 <Grid  item>
                     <Card className={classes.gridMargin} >
                     <CardContent>
