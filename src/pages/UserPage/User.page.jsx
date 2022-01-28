@@ -16,10 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   user__view_profile:{
     display: 'block',
-    marginLeft: '-1rem',
-    marginRight: '5rem',
     textAlign: 'center',
-    marginTop: '1rem',
   }
 }));
 
@@ -58,11 +55,6 @@ const UserPage = (props) => {
                 alt=""
               />
               </ListItemAvatar>
-              <Container>
-              <Button className={classes.user__view_profile} variant="contained" color='primary' target="_blank" href={`${userData.html_url}`}>
-                Visit Github
-              </Button>
-              </Container>
             </Grid>
 
             <Grid item xs={6}>
@@ -97,10 +89,13 @@ const UserPage = (props) => {
                         </Grid>
                       </Grid>
                   
-                  
                   </ListItem>
                 </List>
-                
+                <Container>
+              <Button className={classes.user__view_profile} variant="contained" color='primary' target="_blank" href={`${userData.html_url}`}>
+                Visit Github
+              </Button>
+              </Container>
             </Grid>
           </Grid>
           
