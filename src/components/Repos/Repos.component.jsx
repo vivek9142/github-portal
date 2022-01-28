@@ -36,7 +36,7 @@ const  Repos = props => {
        mappingArray = state.userRepo.length>4 && !state.clicked ? slicedArray : state.userRepo;
 
     const repoArray = mappingArray.map(data => (
-        <div className="user__repo--item" key={data.id}>
+        <div className={classes.user__repo_item} key={data.id}>
           <Accordion>
             <AccordionSummary expandIcon={<ExpandMore/>} aria-controls={`panela${data.id}-content`}
               id={`panela${data.id}-header`}>
@@ -89,5 +89,8 @@ const useStyles = makeStyles(()=>({
     justifyContent:'space-between'
   },
   lang__container:{flexBasis:'12rem'},
-  desc__container:{flexBasis:'25rem'}
+  desc__container:{flexBasis:'25rem'},
+  user__repo_item:{
+    margin: '0.5rem 0'
+  }
 }));

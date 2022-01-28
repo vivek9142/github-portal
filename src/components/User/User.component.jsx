@@ -6,7 +6,8 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   cardMargin:{
-    marginBottom:'1rem'
+    marginBottom:'1rem',
+    marginRight:'.5rem'
   },
   user__title_container:{
     wordWrap:'break-word'

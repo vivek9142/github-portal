@@ -13,6 +13,13 @@ const useStyles = makeStyles(theme => ({
     width:'15rem',
     height:'15rem',
     borderRadius:'1rem'
+  },
+  user__view_profile:{
+    display: 'block',
+    marginLeft: '-1rem',
+    marginRight: '5rem',
+    textAlign: 'center',
+    marginTop: '1rem',
   }
 }));
 
@@ -52,7 +59,7 @@ const UserPage = (props) => {
               />
               </ListItemAvatar>
               <Container>
-              <Button variant="contained" target="_blank" href={`${userData.html_url}`}>
+              <Button className={classes.user__view_profile} variant="contained" color='primary' target="_blank" href={`${userData.html_url}`}>
                 Visit Github
               </Button>
               </Container>

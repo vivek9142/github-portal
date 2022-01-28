@@ -10,6 +10,7 @@
     height: 80vh;
     overflow-y: scroll;
     position: fixed;
+    background: #f3f0f0;
     width: 21%;
     margin-top: 7rem;
     z-index: 9;
@@ -17,5 +18,16 @@
 .usersPage__table--contents{
     margin-top: 8rem;    
     margin-left: 4rem;
+    background: #f3f0f0;
+    height:max-content;
+    min-height: 80vh;
 }
 
+.usersPage__container {
+    background: #f3f0f0;
+}
+
+.usersPage_form {
+    background: #f3f0f0;
+    color: #fff;
+}
