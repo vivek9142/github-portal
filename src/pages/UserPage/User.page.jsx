@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container,Avatar, List,ListItem,ListItemAvatar,Button,Divider,Typography,Grid,ListItemText, ListSubheader} from "@material-ui/core";
+import { Container,Avatar, List,ListItem,ListItemAvatar,Button,Divider,Typography,Grid,ListItemText, ListSubheader,Paper, Box} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import Repos from "../../components/Repos/Repos.component";
 
@@ -17,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   user__view_profile:{
     display: 'block',
     textAlign: 'center',
+  },
+  user__metaData:{
+    // padding:'1rem'
   }
 }));
 
@@ -39,16 +42,16 @@ const UserPage = (props) => {
   return (
     <>
       
-      <div className="user">
+      <Box className="user">
+      <Paper className={classes.user__metaData} elevation={2} >
         
-      <List className="user--title-container" subheader={
-        <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
-          {userData.name}
-        </ListSubheader>
-      }>
+      <List className="user--title-container">
         <ListItem>
           <Grid container>
             <Grid item xs={6}>
+            <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
+          {userData.name}
+        </ListSubheader>
                 <ListItemAvatar >
               <Avatar
                    className={classes.avatar} src={userData.avatar_url}
@@ -101,11 +104,12 @@ const UserPage = (props) => {
           
         </ListItem>
       </List>
-        <div className="user__repo--container">
+      </Paper>
+        <Box className="user__repo--container">
               <Typography heading='h4'>Repositories</Typography>
               <Repos user={user} external={props.external}/>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 };

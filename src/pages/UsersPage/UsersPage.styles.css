@@ -1,26 +1,25 @@
 .usersPage_form{
     position: fixed;
     width: 100%;
-    padding: 3rem 0;
+    padding: 1.5rem 0 1rem;
     top: 0rem;
     z-index: 11;
     background-color: #fff;
 }
 .usersPage__table{
-    height: 80vh;
+    height: 84vh;
     overflow-y: scroll;
     position: fixed;
     background: #f3f0f0;
     width: 21%;
-    margin-top: 7rem;
+    margin-top: 5rem;
     z-index: 9;
 }
 .usersPage__table--contents{
-    margin-top: 8rem;    
-    margin-left: 4rem;
+    margin-top: 5rem;    
     background: #f3f0f0;
     height:max-content;
-    min-height: 80vh;
+    min-height: 87.5vh;
 }
 
 .usersPage__container {

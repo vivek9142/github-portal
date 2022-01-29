@@ -2,39 +2,44 @@ import React from 'react';
 import MainForm from '../../components/MainForm/MainForm.component';
 import UserTable from '../../components/UserTable/UserTable.component';
 import UserPage from '../UserPage/User.page';
-import {Grid,Container} from '@material-ui/core';
+import {Grid,Container, Box} from '@material-ui/core';
 import { useSelector } from "react-redux";
 
 import './UsersPage.styles.css';
+import { makeStyles } from '@material-ui/styles';
 
 const UsersPage = (props) => {
     const user = useSelector((state) => state.userData);
     return(
-        <div className="usersPage__container">
+        <Box className="usersPage__container">
             <Container>
 
-            <div className="usersPage_form">
+            <Box className="usersPage_form">
                     <MainForm />
-            </div>
+            </Box>
 
             <Grid container spacing={2}>
                 <Grid item md={3} sm={5}>
-                    <div className="usersPage__table">
+                    <Box className="usersPage__table">
                     <UserTable />
-                    </div>
+                    </Box>
                 </Grid>
 
                 <Grid item md={9} sm={7}>
-                    <div className="usersPage__table--contents">
+                    <Box className="usersPage__table--contents">
                     {user.user && !user.external  ? <UserPage user={user.user.login} internal/> : <></>}
-                    </div>
+                    </Box>
                 </Grid>
                 
             </Grid>
         
         </Container>
-        </div>
+        </Box>
     )
 };
 
 export default UsersPage;
+
+const useStyles = makeStyles(theme =>({
+
+}));
