@@ -4,11 +4,15 @@ import { makeStyles } from '@material-ui/core';
 import MainForm from '../../components/MainForm/MainForm.component';
 import About from '../../components/About/About.component';
 
-import './HomePage.styles.css';
-
 const useStyles = makeStyles(theme => ({
     gridMargin: {
         marginBottom:'2rem'
+    },
+    homepage__container:{
+        background: theme.palette.background.default,
+        '&>div' :{
+            height: '100vh'
+        }
     }
 }));
 const HomePage = (props) => {
@@ -18,7 +22,7 @@ const HomePage = (props) => {
         props.history.push('/users/');
     }
     return(
-        <Paper className="homepage__container">
+        <Paper className={classes.homepage__container}>
             <Grid container direction="column" justifyContent="center" alignItems="center">
                 <Grid  item>
                     <Card className={classes.gridMargin} >

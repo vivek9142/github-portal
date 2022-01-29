@@ -1,7 +1,7 @@
 import { useLayoutEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box, Button} from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import { changeQueryWithUser } from '../../redux/actionCreator/searchActionCr';
 import { resetUserData } from '../../redux/actionCreator/userActionCr';
@@ -57,7 +57,8 @@ const  Repos = props => {
                   <Box>
                   <Typography component='p'>
                   <a href={data.html_url} target="_blank"
-                rel="noreferrer" className="user__repo--link">Visit Repo</a>
+                rel="noreferrer" className="user__repo--link">
+                  Visit Repo</a>
                     </Typography>
                   </Box>
                   
@@ -74,8 +75,12 @@ const  Repos = props => {
 
       return (
           <>
+          {state.userRepo.length > 4 && !state.clicked ? 
+          (
+          <Button color='primary' variant='outlined' onClick={clickHandler}>View All Repos</Button>
+          ):(<></>)}
           {repoArray}
-          {state.userRepo.length > 4 && !state.clicked ? (<button onClick={clickHandler}>View All Repos</button>):(<></>)}
+          
           </>
       )
 
@@ -92,5 +97,5 @@ const useStyles = makeStyles(()=>({
   desc__container:{flexBasis:'25rem'},
   user__repo_item:{
     margin: '0.5rem 0'
-  }
+  },
 }));
