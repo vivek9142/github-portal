@@ -57,8 +57,9 @@ const  Repos = props => {
                   <Box>
                   <Typography component='p'>
                   <a href={data.html_url} target="_blank"
-                rel="noreferrer" className="user__repo--link">
-                  Visit Repo</a>
+                rel="noreferrer" className={classes.repoVisit_link}>
+                  <Button variant="outlined"  color='primary' size='small'>Visit Repo</Button>
+                  </a>
                     </Typography>
                   </Box>
                   
@@ -75,12 +76,15 @@ const  Repos = props => {
 
       return (
           <>
-          {state.userRepo.length > 4 && !state.clicked ? 
-          (
-          <Button color='primary' variant='outlined' onClick={clickHandler}>View All Repos</Button>
-          ):(<></>)}
-          {repoArray}
+          <Box className={classes.repo__heading_container}>
+              <Typography variant='h6'>Repositories</Typography>
+              {state.userRepo.length > 4 && !state.clicked ? 
+              (
+              <Button size="small" color='primary' variant='outlined' onClick={clickHandler}>View All Repos</Button>
+              ):(<></>)}
+          </Box>
           
+          {repoArray}
           </>
       )
 
@@ -98,4 +102,15 @@ const useStyles = makeStyles(()=>({
   user__repo_item:{
     margin: '0.5rem 0'
   },
+  repo__heading_container:{
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '1.5rem 0'
+  },
+  repoVisit_link:{
+    '&,&:visited,&:active,&:hover':{
+      color:'inherit',
+      textDecoration:'none'
+    }
+  }
 }));

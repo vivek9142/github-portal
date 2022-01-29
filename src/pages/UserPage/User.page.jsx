@@ -106,7 +106,6 @@ const UserPage = (props) => {
       </List>
       </Paper>
         <Box className="user__repo--container">
-              <Typography heading='h4'>Repositories</Typography>
               <Repos user={user} external={props.external}/>
         </Box>
       </Box>
