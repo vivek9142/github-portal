@@ -14,7 +14,7 @@ const UsersPage = (props) => {
             <Container>
 
             <Box className={classes.usersPage_form}>
-                    <MainForm />
+                    <MainForm {...props}/>
             </Box>
 
             <Grid container spacing={2}>

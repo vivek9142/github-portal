@@ -8,27 +8,27 @@ const About  = (props) => {
             <Grid item>
                 <Typography variant='h5'>About App</Typography>
                 <hr/>
-                <Typography gutterTop variant='p'>
+                <Typography >
                     Our Website showcase the following functionalities - 
                 </Typography>
                 <List>
                     <ListItem alignItems='flex-start'>
                         <ArrowRightIcon fontSize='small'/>
-                        <Typography variant='p'>
+                        <Typography>
                             Search through github users and their repos.
                         </Typography>
                     </ListItem>
 
                     <ListItem alignItems='flex-start'>
                         <ArrowRightIcon fontSize='small'/>
-                        <Typography variant='p'>
+                        <Typography>
                             Look for any Github user along with their Work,collaborations,code_creativity.
                         </Typography>
                     </ListItem>
 
                     <ListItem alignItems='flex-start'>
                         <ArrowRightIcon fontSize='small'/>
-                        <Typography variant='p'>
+                        <Typography>
                             You can also search for specific Github user by usingn URL '/users/:USER_NAME'
                         </Typography>
                     </ListItem>

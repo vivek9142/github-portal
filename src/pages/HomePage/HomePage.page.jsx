@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,CardContent,Typography,Grid,Paper} from '@material-ui/core';
+import {Card,CardContent,Typography,Grid,Paper, Box} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import MainForm from '../../components/MainForm/MainForm.component';
 import About from '../../components/About/About.component';
@@ -22,7 +22,7 @@ const HomePage = (props) => {
         props.history.push('/users/');
     }
     return(
-        <Paper className={classes.homepage__container}>
+        <Box className={classes.homepage__container}>
             <Grid container direction="column" justifyContent="center" alignItems="center">
                 <Grid  item>
                     <Card className={classes.gridMargin} >
@@ -34,13 +34,13 @@ const HomePage = (props) => {
 
                 <Card raised>
                     <CardContent>
-                        <MainForm onRedirect={redirectHandler}/>
+                        <MainForm onRedirect={redirectHandler} {...props}/>
                     </CardContent>
                 </Card>
                 </Grid>
             </Grid>
             
-        </Paper>
+        </Box>
     )
 };
 
