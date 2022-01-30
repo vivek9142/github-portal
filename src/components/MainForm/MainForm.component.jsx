@@ -1,5 +1,5 @@
 import { Formik, Form, } from "formik";
-import { Grid,Button,FormControlLabel,Switch } from "@material-ui/core";
+import { Grid,Box,Button,FormControlLabel,Switch } from "@material-ui/core";
 
 import { useSelector, useDispatch } from "react-redux";
 import {changeQuery} from "../../redux/actionCreator/searchActionCr";
@@ -55,7 +55,7 @@ const MainForm = (props) => {
                   label="Dark Mode" className={props.darktheme ? classes.button__darkTheme : classes.button__lighTheme}
                 />
               </Grid>
-
+          
           </Grid>
         </Form>
       )}
