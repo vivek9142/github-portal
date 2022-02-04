@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Formik, Form, } from "formik";
-import { Grid,Box,Button,FormControlLabel,Switch } from "@material-ui/core";
+import { Grid,Button,FormControlLabel,Switch } from "@material-ui/core";
 
 import { useSelector, useDispatch } from "react-redux";
 import {changeQuery} from "../../redux/actionCreator/searchActionCr";
@@ -8,6 +9,7 @@ import TextFieldWrapper from "../FormsUI/TextField.component";
 import { makeStyles } from "@material-ui/styles";
 
 const MainForm = (props) => {
+  const [adv,setAdv] = useState(false);
   const classes = useStyles();
   const dispatch = useDispatch();
   const { query, per_page, order } = useSelector((state) => state.query);
@@ -15,6 +17,11 @@ const MainForm = (props) => {
   const redirectFunc = () => {
     if(props.onRedirect) props.onRedirect();
   }
+
+  const advHandler = () => {
+    setAdv(state => !state);
+  }
+
   if(!query && !per_page && !order) return <></>
   
   return (
@@ -33,17 +40,37 @@ const MainForm = (props) => {
       {(formik) => (
         <Form>
           <Grid container spacing={2}>
-              <Grid item lg={3} md={3} sm={11}>
-                <TextFieldWrapper name='query' label='query'/>
-              </Grid>
-              <Grid item lg={2} md={2} sm={3}>
-                <TextFieldWrapper name='per_page' label='Results'/>
-              </Grid>
-              <Grid item lg={2} md={2} sm={3}>
+            <Grid item lg={adv? 3 : 6 } md={3} sm={9 }>
+                  <TextFieldWrapper name='query' label='query'/>
+            </Grid>
+              {
+               adv ? 
+              (<>
                 
-                <TextFieldWrapper name='order' label='order'/>
-              </Grid>
-              <Grid item lg={2} md={2} sm={2}>
+                <Grid item lg={1} md={1} sm={3}>
+                  <TextFieldWrapper name='per_page' label='Results'/>
+                </Grid>
+                <Grid item lg={2} md={2} sm={3}>
+                  <TextFieldWrapper name='order' label='order'/>
+                </Grid>
+                <Grid item lg={1} md={1} sm={3}>
+                    <Button onClick={advHandler} variant='outlined' color='primary'>
+                      Hide
+                    </Button>
+                </Grid>
+              </>)
+              :(
+                <>
+                  <Grid item lg={1} md={4} sm={3}>
+                    <Button onClick={advHandler} variant='outlined' color='primary'>
+                    Advanced
+                    </Button>
+                  </Grid>
+                </>
+              )
+              }
+
+              <Grid item lg={1} md={1} sm={1}>
               <Button type="submit" variant='contained' color='primary'>
                 Submit
               </Button>
@@ -55,8 +82,8 @@ const MainForm = (props) => {
                   label="Dark Mode" className={props.darktheme ? classes.button__darkTheme : classes.button__lighTheme}
                 />
               </Grid>
-          
           </Grid>
+          
         </Form>
       )}
     </Formik>
