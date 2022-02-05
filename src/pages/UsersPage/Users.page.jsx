@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme =>({
         top: '0rem',
         zIndex: '11',
         background: theme.palette.background.default,
-        // '#f3f0f0',
+        maxWidth:'90%',
         color: '#fff'
     },
     usersPage__table:{

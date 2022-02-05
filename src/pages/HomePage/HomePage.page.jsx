@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
         '&>div' :{
             height: '100vh'
         }
+    },
+    mainForm__container:{
+        minWidth:'60rem'
     }
 }));
 const HomePage = (props) => {
@@ -33,7 +36,7 @@ const HomePage = (props) => {
                 </Card>
 
                 <Card raised>
-                    <CardContent>
+                    <CardContent  className={classes.mainForm__container}>
                         <MainForm onRedirect={redirectHandler} {...props}/>
                     </CardContent>
                 </Card>
