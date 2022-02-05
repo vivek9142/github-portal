@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container,Avatar, List,ListItem,ListItemAvatar,Button,Divider,Typography,Grid,ListItemText, ListSubheader,Paper, Box} from "@material-ui/core";
+import { Container,Avatar, List,ListItem,ListItemAvatar,Button,Divider,Grid,ListItemText, ListSubheader,Paper, Box} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import Repos from "../../components/Repos/Repos.component";
 

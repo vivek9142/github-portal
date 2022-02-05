@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,CardContent,Typography,Grid,Paper, Box} from '@material-ui/core';
+import {Card,CardContent,Typography,Grid, Box} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import MainForm from '../../components/MainForm/MainForm.component';
 import About from '../../components/About/About.component';
@@ -15,12 +15,14 @@ const useStyles = makeStyles(theme => ({
         }
     },
     mainForm__container:{
-        minWidth:'60rem'
+        width:'60rem',
+        [theme.breakpoints.down('sm')]: {
+            width:'100%',
+          },
     }
 }));
 const HomePage = (props) => {
     const classes = useStyles();
-
     const redirectHandler = () => {
         props.history.push('/users/');
     }
