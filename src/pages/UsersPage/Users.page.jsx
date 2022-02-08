@@ -63,8 +63,16 @@ const useStyles = makeStyles(theme =>({
         marginTop: '5rem',    
         background: theme.palette.background.default,
         height:'max-content',
-        marginLeft:'3rem',
-        minHeight: '87.5vh'
+        marginLeft:'7rem',
+        minHeight: '87.5vh',
+        
+        [theme.breakpoints.down('md')]: {
+            marginLeft:'0',
+        },
+        [theme.breakpoints.down('sm')]: {
+            marginLeft:' -8rem',
+            marginTop: '6rem', 
+        },
     },
     usersPage__container:{
         background: theme.palette.background.default,
