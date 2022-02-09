@@ -2,11 +2,12 @@ import React from 'react';
 import MainForm from '../../components/MainForm/MainForm.component';
 import UserTable from '../../components/UserTable/UserTable.component';
 import UserPage from '../UserPage/User.page';
-import {Grid,Container, Box} from '@material-ui/core';
+import {Grid,Container, Box,withWidth} from '@material-ui/core';
 import { useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/styles';
 
 const UsersPage = (props) => {
+    const {width} = props;
     const classes = useStyles();
     const user = useSelector((state) => state.userData);
     return(
@@ -19,7 +20,11 @@ const UsersPage = (props) => {
 
             <Grid container spacing={2}>
                 <Grid item md={3} sm={5}>
-                    <Box className={classes.usersPage__table}>
+                    <Box className={classes.usersPage__table} display={width==='sm' ? 'none': 'block'}>
+                    <UserTable />
+                    </Box>
+
+                    <Box className={classes.usersPage__table_mobile} display={width==='sm' ? 'block': 'none'}>
                     <UserTable />
                     </Box>
                 </Grid>
@@ -37,7 +42,7 @@ const UsersPage = (props) => {
     )
 };
 
-export default UsersPage;
+export default withWidth()(UsersPage);
 
 const useStyles = makeStyles(theme =>({
     usersPage_form:{
