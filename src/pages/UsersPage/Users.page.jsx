@@ -1,6 +1,7 @@
 import React from 'react';
 import MainForm from '../../components/MainForm/MainForm.component';
 import UserTable from '../../components/UserTable/UserTable.component';
+import UserTableSiderbar_container from '../../components/UserTable_Sidebar/UserTableSiderbar_container.component';
 import UserPage from '../UserPage/User.page';
 import {Grid,Container, Box,withWidth} from '@material-ui/core';
 import { useSelector } from "react-redux";
@@ -20,12 +21,12 @@ const UsersPage = (props) => {
 
             <Grid container spacing={2}>
                 <Grid item md={3} sm={5}>
-                    <Box className={classes.usersPage__table} display={width==='sm' ? 'none': 'block'}>
+                    <Box className={classes.usersPage__table} display={['xs','sm'].includes(width) ? 'none': 'block'}>
                     <UserTable />
                     </Box>
 
-                    <Box className={classes.usersPage__table_mobile} display={width==='sm' ? 'block': 'none'}>
-                    <UserTable />
+                    <Box className={classes.usersPage__table_mobile} display={['xs','sm'].includes(width) ? 'block': 'none'}>
+                    <UserTableSiderbar_container />
                     </Box>
                 </Grid>
 
