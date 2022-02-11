@@ -21,7 +21,7 @@ const UsersPage = (props) => {
             </Box>
 
             <Grid container spacing={2}>
-                <Grid item md={3} xs={'auto'}>
+                <Grid item md={3} xs={'false'}>
                     <Box className={classes.usersPage__table} display={['xs','sm'].includes(width) ? 'none': 'block'}>
                     <UserTable />
                     </Box>
@@ -78,8 +78,13 @@ const useStyles = makeStyles(theme =>({
             marginLeft:'0',
         },
         [theme.breakpoints.down('sm')]: {
-            marginLeft:' 3rem',
-            marginTop: '6rem', 
+            marginLeft:'1.5rem',
+            marginTop: '8rem', 
+        },
+        [theme.breakpoints.down('xs')]: {
+            // marginLeft:'1.5rem',
+            // marginTop: '8rem', 
+            width:'90%'
         },
     },
     usersPage__container:{

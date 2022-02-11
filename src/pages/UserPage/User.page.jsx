@@ -12,12 +12,39 @@ const useStyles = makeStyles(theme => ({
   avatar:{
     width:'15rem',
     height:'15rem',
-    borderRadius:'1rem'
+    borderRadius:'1rem',
+    [theme.breakpoints.down('sm')]:{
+      width:'13rem',
+      height:'13rem',
+    },
+    [theme.breakpoints.down('xs')]:{
+      width:'11rem',
+      height:'11rem',
+    }
+  },
+  user__username:{
+    [theme.breakpoints.down('xs')]:{
+      display: 'flex',
+      flexDirection: 'column'
+    },
   },
   user__view_profile:{
     display: 'block',
     textAlign: 'center',
-    margin:'4rem auto'
+    margin:'0 6rem',
+    [theme.breakpoints.down('sm')]:{
+      margin:'0 4rem',
+    },
+    [theme.breakpoints.down('xs')]:{
+      margin:'0 1rem',
+    }
+  },
+  user__image_container:{
+      display:'block',
+    [theme.breakpoints.down('xs')]:{
+      display: 'grid',
+      placeItems: 'center'
+    }
   }
 }));
 
@@ -50,7 +77,7 @@ const UserPage = (props) => {
             <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
           {userData.name}
         </ListSubheader>
-                <ListItemAvatar >
+                <ListItemAvatar className={classes.user__image_container}>
               <Avatar
                    className={classes.avatar} src={userData.avatar_url}
                 alt=""
@@ -60,7 +87,7 @@ const UserPage = (props) => {
 
             <Grid item md={8} sm={6} xs={12}>
                 <List>
-                  <ListItem>
+                  <ListItem className={classes.user__username}>
                   <ListItemText>Username </ListItemText> <ListItemText>{userData.login}</ListItemText>
                   </ListItem>
 
