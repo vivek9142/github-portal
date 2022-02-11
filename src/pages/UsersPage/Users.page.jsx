@@ -48,12 +48,13 @@ export default withWidth()(UsersPage);
 const useStyles = makeStyles(theme =>({
     usersPage_form:{
         position: 'fixed',
-        width: '100%',
-        padding: '1.5rem 0 1rem',
+        width: '100vw',
+        padding: '1.5rem .8rem 1rem',
         top: '0rem',
+        left:'0',
         zIndex: '11',
         background: theme.palette.background.default,
-        maxWidth:'90%',
+        // maxWidth:'90%',
         color: '#fff'
     },
     usersPage__table:{
