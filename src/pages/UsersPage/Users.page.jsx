@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import MainForm from '../../components/MainForm/MainForm.component';
 import UserTable from '../../components/UserTable/UserTable.component';
-import UserTableSiderbar_container from '../../components/UserTable_Sidebar/UserTableSiderbar_container.component';
+import UserTable_Siderbar_Container from '../../components/UserTable_Sidebar/UserTable_Siderbar_Container.component';
 import UserPage from '../UserPage/User.page';
 import {Grid,Container, Box,withWidth} from '@material-ui/core';
 import { useSelector } from "react-redux";
@@ -20,13 +21,13 @@ const UsersPage = (props) => {
             </Box>
 
             <Grid container spacing={2}>
-                <Grid item md={3} xs={0}>
+                <Grid item md={3} xs={'auto'}>
                     <Box className={classes.usersPage__table} display={['xs','sm'].includes(width) ? 'none': 'block'}>
                     <UserTable />
                     </Box>
 
                     <Box className={classes.usersPage__table_mobile} display={['xs','sm'].includes(width) ? 'block': 'none'}>
-                    <UserTableSiderbar_container />
+                    <UserTable_Siderbar_Container />
                     </Box>
                 </Grid>
 

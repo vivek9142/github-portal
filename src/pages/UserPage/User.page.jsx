@@ -17,9 +17,7 @@ const useStyles = makeStyles(theme => ({
   user__view_profile:{
     display: 'block',
     textAlign: 'center',
-  },
-  user__metaData:{
-    // padding:'1rem'
+    margin:'4rem auto'
   }
 }));
 
@@ -48,7 +46,7 @@ const UserPage = (props) => {
       <List className="user--title-container">
         <ListItem>
           <Grid container>
-            <Grid item sm={6} xs={12}>
+            <Grid item md={4} sm={6} xs={12}>
             <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
           {userData.name}
         </ListSubheader>
@@ -60,7 +58,7 @@ const UserPage = (props) => {
               </ListItemAvatar>
             </Grid>
 
-            <Grid item sm={6} xs={12}>
+            <Grid item md={8} sm={6} xs={12}>
                 <List>
                   <ListItem>
                   <ListItemText>Username </ListItemText> <ListItemText>{userData.login}</ListItemText>
