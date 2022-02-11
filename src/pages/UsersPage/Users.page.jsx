@@ -49,7 +49,7 @@ export default withWidth()(UsersPage);
 const useStyles = makeStyles(theme =>({
     usersPage_form:{
         position: 'fixed',
-        width: '100vw',
+        width: '98vw',
         padding: '1.5rem .8rem 1rem',
         top: '0rem',
         left:'0',

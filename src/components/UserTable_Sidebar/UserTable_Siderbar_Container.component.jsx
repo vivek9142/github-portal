@@ -22,6 +22,7 @@ const useClasses = makeStyles(theme => ({
         position: 'fixed',
         top: '14rem',
         left: '-3rem',
+        zIndex:'10',
         transform: 'rotate(90deg)'
     },
     sidebar__Button:{
