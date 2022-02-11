@@ -20,7 +20,7 @@ const UsersPage = (props) => {
             </Box>
 
             <Grid container spacing={2}>
-                <Grid item md={3} sm={0}>
+                <Grid item md={3} xs={0}>
                     <Box className={classes.usersPage__table} display={['xs','sm'].includes(width) ? 'none': 'block'}>
                     <UserTable />
                     </Box>
@@ -30,7 +30,7 @@ const UsersPage = (props) => {
                     </Box>
                 </Grid>
 
-                <Grid item md={9} sm={12}>
+                <Grid item md={9} xs={12}>
                     <Box className={classes.usersPage__table_contents}>
                     {user.user && !user.external  ? <UserPage user={user.user.login} internal/> : <></>}
                     </Box>

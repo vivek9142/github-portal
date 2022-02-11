@@ -48,7 +48,7 @@ const UserPage = (props) => {
       <List className="user--title-container">
         <ListItem>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item sm={6} xs={12}>
             <ListSubheader component='div' className={classes.ListHeader} id='nested-list-subheader'>
           {userData.name}
         </ListSubheader>
@@ -60,7 +60,7 @@ const UserPage = (props) => {
               </ListItemAvatar>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid item sm={6} xs={12}>
                 <List>
                   <ListItem>
                   <ListItemText>Username </ListItemText> <ListItemText>{userData.login}</ListItemText>
