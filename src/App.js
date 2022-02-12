@@ -1,4 +1,3 @@
-import "./components/styles.css";
 import {CssBaseline} from '@material-ui/core';
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import UserPage from "./pages/UserPage/User.page";
