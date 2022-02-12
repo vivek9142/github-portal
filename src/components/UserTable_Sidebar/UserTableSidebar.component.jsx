@@ -13,7 +13,7 @@ const UserTable_Sidebar = (props) => {
                 <Box className={classes.sidebarCloseButton__container}>
                 <Button className={classes.sidebarClose__Button} variant='contained' color='primary' onClick={()=>props.onClose()}>close</Button>
                 </Box>
-                <UserTable/>
+                <UserTable />
             </Paper>
         </Box>,
         sidebar

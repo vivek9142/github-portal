@@ -2,7 +2,7 @@
 import { useLayoutEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box, Button} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box} from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 import { changeQueryWithUser } from '../../redux/actionCreator/searchActionCr';
 import { resetUserData } from '../../redux/actionCreator/userActionCr';

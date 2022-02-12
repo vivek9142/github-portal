@@ -1,9 +1,9 @@
-import React from "react";
+import {useContext} from "react";
 import {useDispatch } from "react-redux";
 import {requestUserData} from '../../redux/actionCreator/userActionCr';
 import { Card,CardMedia,CardContent,Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-
+import {sidebarContext} from '../UserTable_Sidebar/UserTableContext';
 const useStyles = makeStyles(theme => ({
   cardMargin:{
     marginBottom:'1rem',
@@ -22,11 +22,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const User = (props) => {
+  let sidebarClosefunc = useContext(sidebarContext);;
   const classes = useStyles();
   const dispatch = useDispatch();
   const {data} = props;
+  
 
-  const clickHandler = () => {props.history.push('/users/');dispatch(requestUserData(data.login));}
+  const clickHandler = () => {
+    props.history.push('/users/');
+    dispatch(requestUserData(data.login));
+    if(sidebarClosefunc) sidebarClosefunc();
+  }
   
   return (
     <>

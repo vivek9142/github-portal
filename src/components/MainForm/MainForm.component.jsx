@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Formik, Form, } from "formik";
-import { Grid,Button,FormControlLabel,withWidth,Switch } from "@material-ui/core";
+import { Grid,FormControlLabel,withWidth,Switch } from "@material-ui/core";
 
 import { useSelector, useDispatch } from "react-redux";
 import {changeQuery} from "../../redux/actionCreator/searchActionCr";
