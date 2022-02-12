@@ -5,8 +5,9 @@ import { Grid,Button,FormControlLabel,withWidth,Switch } from "@material-ui/core
 import { useSelector, useDispatch } from "react-redux";
 import {changeQuery} from "../../redux/actionCreator/searchActionCr";
 import { resetUserData } from "../../redux/actionCreator/userActionCr";
-import TextFieldWrapper from "../FormsUI/TextField.component";
 import { makeStyles } from "@material-ui/styles";
+import TextFieldWrapper from "../FormsUI/TextField.component";
+import ButtonComp from '../ButtonComp/ButtonComp.component';
 
 const MainForm = (props) => {
   const {width} = props;
@@ -34,7 +35,9 @@ const MainForm = (props) => {
         order: order
       }}
       onSubmit={(val) => {
-        dispatch(resetUserData());dispatch(changeQuery(val));redirectFunc();
+        dispatch(resetUserData());
+        dispatch(changeQuery(val));
+        redirectFunc();
       }}
     >
       {(formik) => (
@@ -56,15 +59,15 @@ const MainForm = (props) => {
               :(<></>)
               }
               <Grid item lg={1} md={1} sm={2} xs={4}>
-                    <Button onClick={advHandler} variant='outlined' color='primary'>
+                    <ButtonComp onClick={advHandler} variant='outlined' color='primary'>
                     {adv ? 'Hide': '+Adv'}
-                    </Button>
+                    </ButtonComp>
                   </Grid>
 
               <Grid item lg={2} md={2} sm={2} xs={4}>
-              <Button type="submit" variant='contained' color='primary'>
+              <ButtonComp type="submit" variant='contained' color='primary'>
                 Submit
-              </Button>
+              </ButtonComp>
               </Grid>
 
               <Grid item lg={adv ?2:3} md={3} sm={2} xs={2}>

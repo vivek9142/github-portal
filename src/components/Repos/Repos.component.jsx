@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import { useLayoutEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -5,6 +6,8 @@ import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box, B
 import { ExpandMore } from '@material-ui/icons';
 import { changeQueryWithUser } from '../../redux/actionCreator/searchActionCr';
 import { resetUserData } from '../../redux/actionCreator/userActionCr';
+
+import ButtonComp from '../ButtonComp/ButtonComp.component';
 
 const  Repos = props => {
     const classes = useStyles();
@@ -58,7 +61,7 @@ const  Repos = props => {
                   <Typography component='p'>
                   <a href={data.html_url} target="_blank"
                 rel="noreferrer" className={classes.repoVisit_link}>
-                  <Button variant="outlined"  color='primary' size='small'>Visit Repo</Button>
+                  <ButtonComp variant="outlined"  color='primary' size='small'>Visit Repo</ButtonComp>
                   </a>
                     </Typography>
                   </Box>
@@ -80,7 +83,7 @@ const  Repos = props => {
               <Typography variant='h6'>Repositories</Typography>
               {state.userRepo.length > 4 && !state.clicked ? 
               (
-              <Button size="small" color='primary' variant='outlined' onClick={clickHandler}>View All Repos</Button>
+              <ButtonComp size="small" color='primary' variant='outlined' onClick={clickHandler}>View All Repos</ButtonComp>
               ):(<></>)}
           </Box>
           

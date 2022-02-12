@@ -21,7 +21,7 @@ const UsersPage = (props) => {
             </Box>
 
             <Grid container spacing={2}>
-                <Grid item md={3} xs={'false'}>
+                <Grid item md={3} xs='auto'>
                     <Box className={classes.usersPage__table} display={['xs','sm'].includes(width) ? 'none': 'block'}>
                     <UserTable />
                     </Box>

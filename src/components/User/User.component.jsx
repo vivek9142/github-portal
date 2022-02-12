@@ -11,6 +11,13 @@ const useStyles = makeStyles(theme => ({
   },
   user__title_container:{
     wordWrap:'break-word'
+  },
+  user:{
+    transition:'all 0.3s ease-out',
+    '&:hover':{
+        background: theme.palette.primary.light,
+        color: theme.palette.background.default,
+    }
   }
 }));
 
@@ -24,7 +31,7 @@ const User = (props) => {
   return (
     <>
       <Card className={classes.cardMargin} onClick={clickHandler}>
-        <div className="user" >
+        <div className={classes.user} >
 
             <Grid  container>
               <Grid item xs={4}>
