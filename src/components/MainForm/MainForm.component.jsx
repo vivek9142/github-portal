@@ -5,14 +5,14 @@ import { Grid,FormControlLabel,withWidth,Switch } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import {changeQuery} from "../../redux/actionCreator/searchActionCr";
 import { resetUserData } from "../../redux/actionCreator/userActionCr";
-import { makeStyles } from "@material-ui/styles";
+import useMainFormStyles from "./MainForm.styles";
 import TextFieldWrapper from "../FormsUI/TextField.component";
 import ButtonComp from '../ButtonComp/ButtonComp.component';
 
 const MainForm = (props) => {
   const {width} = props;
   const [adv,setAdv] = useState(false);
-  const classes = useStyles();
+  const classes = useMainFormStyles();
   const dispatch = useDispatch();
   const { query, per_page, order } = useSelector((state) => state.query);
 
@@ -88,11 +88,3 @@ const MainForm = (props) => {
 
 export default withWidth()(MainForm);
 
-const useStyles = makeStyles(theme => ({
-  button__darkTheme:{
-    color:theme.palette.common.white
-  },
-  button__lighTheme:{
-    color:theme.palette.common.black
-  }
-}));

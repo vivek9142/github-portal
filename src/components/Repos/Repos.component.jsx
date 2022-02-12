@@ -2,15 +2,16 @@
 import { useLayoutEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import {Accordion,AccordionSummary,AccordionDetails,Typography,makeStyles,Box} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,Typography,Box} from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
+
 import { changeQueryWithUser } from '../../redux/actionCreator/searchActionCr';
 import { resetUserData } from '../../redux/actionCreator/userActionCr';
-
+import useReposStyles from './Repos.styles';
 import ButtonComp from '../ButtonComp/ButtonComp.component';
 
 const  Repos = props => {
-    const classes = useStyles();
+    const classes = useReposStyles();
     const dispatch = useDispatch(); 
     const [state,setState] =  useState({userRepo:[],clicked:false});
 
@@ -94,49 +95,3 @@ const  Repos = props => {
 };
 
 export default Repos;
-
-const useStyles = makeStyles((theme)=>({
-  box__container:{
-    margin:'0 1rem',
-    flexDirection:'row',
-    justifyContent:'space-between',
-    [theme.breakpoints.down('xs')]: {
-      flexDirection:'column',
-      wordBreak:'break-word',
-      margin:'.5rem 0',
-      gap:'1rem'
-    }
-  },
-  lang__container:{
-    flexBasis:'12rem',
-    [theme.breakpoints.down('xs')]: {
-      flexBasis:'0',
-    },
-  },
-  desc__container:{
-    flexBasis:'25rem',
-    [theme.breakpoints.down('xs')]: {
-      flexBasis:'0',
-    },
-  },
-  user__repo_item:{
-    margin: '0.5rem 0'
-  },
-  repo__heading_container:{
-    display: 'flex',
-    flexDirection:'row',
-    justifyContent: 'space-between',
-    margin: '1.5rem 0',
-    [theme.breakpoints.down('xs')]: {
-      textAlign: 'center',
-      flexDirection:'column',
-      gap:'.4rem'
-    }
-  },
-  repoVisit_link:{
-    '&,&:visited,&:active,&:hover':{
-      color:'inherit',
-      textDecoration:'none'
-    }
-  }
-}));
