@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 const useUserPageStyles = makeStyles(theme => ({
     ListHeader:{
       fontSize:'1.5rem',
-      position:'relative'
+      position:'relative',
     },
     avatar:{
       width:'15rem',
@@ -24,15 +24,25 @@ const useUserPageStyles = makeStyles(theme => ({
         flexDirection: 'column'
       },
     },
+    user_bio:{
+      wordBreak:'break-word',
+      '&>div':{
+        [theme.breakpoints.down('xs')]:{
+          display: 'flex',
+          flexDirection: 'column'
+        },
+      },
+      
+    },
     user__view_profile:{
       display: 'block',
       textAlign: 'center',
       margin:'0 6rem',
       [theme.breakpoints.down('sm')]:{
-        margin:'0 4rem',
+        margin:'0 2.3rem',
       },
       [theme.breakpoints.down('xs')]:{
-        margin:'0 1rem',
+        margin:'0',
       }
     },
     user__image_container:{

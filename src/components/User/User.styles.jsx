@@ -13,6 +13,11 @@ const useUserStyles = makeStyles(theme => ({
           background: theme.palette.primary.light,
           color: theme.palette.background.default,
       }
+    },
+    user_img:{
+      width: "5rem" ,
+      height:"7rem",
+      objectFit:'cover'
     }
   }));
 

@@ -28,12 +28,7 @@ const User = (props) => {
             <Grid  container>
               <Grid item xs={4}>
               <CardMedia>
-              <img
-                src={data.avatar_url}
-                style={{ width: "5rem" ,height:"7rem",objectFit:'cover'}}
-                alt=""
-                className="user--img"
-              />
+              <img src={data.avatar_url} alt="" className={classes.user_img}/>
             </CardMedia>
               </Grid>
               <Grid item xs={8}>

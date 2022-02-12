@@ -64,12 +64,12 @@ const UserPage = (props) => {
                   <Divider />
 
                   <ListItem>
-                      <Grid container>
-                        <Grid item xs={4}>
+                      <Grid container className={classes.user_bio}>
+                        <Grid item sm={4} xs={12}>
                         <ListItemText>About </ListItemText>
                         </Grid>
-                        <Grid item xs={8}>
-                        <ListItemText>{userData.bio}</ListItemText>
+                        <Grid item sm={8} xs={12}>
+                        <ListItemText >{userData.bio === null ? 'Not Specified' : userData.bio }</ListItemText>
                         </Grid>
                       </Grid>
                   
