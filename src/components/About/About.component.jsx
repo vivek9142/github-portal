@@ -26,12 +26,6 @@ const About  = (props) => {
                         </Typography>
                     </ListItem>
 
-                    <ListItem alignItems='flex-start'>
-                        <ArrowRightIcon fontSize='small'/>
-                        <Typography>
-                            You can also search for specific Github user by usingn URL '/users/:USER_NAME'
-                        </Typography>
-                    </ListItem>
                 </List>
             </Grid>
 
