@@ -2,7 +2,7 @@
   "name": "github-portal",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://vivek9142.github.io/github-portal/",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "0.24.0",
     "formik": "2.2.9",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "7.2.6",
