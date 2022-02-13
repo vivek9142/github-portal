@@ -7,7 +7,7 @@ import {withTheme} from './components/Theme/Theme';
 function App(origProps) {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
           <div className="App">  
             <CssBaseline/>      
           <Switch>
