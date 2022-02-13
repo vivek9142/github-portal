@@ -9,7 +9,6 @@ const useUsersPageStyles =  makeStyles(theme =>({
         left:'0',
         zIndex: '11',
         background: theme.palette.background.default,
-        // maxWidth:'90%',
         color: '#fff'
     },
     usersPage__table:{
@@ -36,8 +35,6 @@ const useUsersPageStyles =  makeStyles(theme =>({
             marginTop: '8rem', 
         },
         [theme.breakpoints.down('xs')]: {
-            // marginLeft:'1.5rem',
-            // marginTop: '8rem', 
             width:'90%'
         },
     },

@@ -44,6 +44,11 @@ const useReposStyles = makeStyles((theme)=>({
         color:'inherit',
         textDecoration:'none'
       }
+    },
+    empty_repo__container:{
+      display:'grid',
+      placeItems:'center',
+      height:'20vh',
     }
   }));
 

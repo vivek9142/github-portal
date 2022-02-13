@@ -2,7 +2,7 @@
 import { useLayoutEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import {Accordion,AccordionSummary,AccordionDetails,Typography,Box} from '@material-ui/core';
+import {Accordion,AccordionSummary,AccordionDetails,Typography,Box,Paper} from '@material-ui/core';
 import { ExpandMore } from '@material-ui/icons';
 
 import { changeQueryWithUser } from '../../redux/actionCreator/searchActionCr';
@@ -77,18 +77,23 @@ const  Repos = props => {
       if (!props.user) {
         return <></>;
       }
-
+      
       return (
           <>
           <Box className={classes.repo__heading_container}>
               <Typography variant='h6'>Repositories</Typography>
-              {state.userRepo.length > 4 && !state.clicked ? 
+              {state.userRepo.length > 4 && !state.clicked && 
               (
               <ButtonComp size="small" color='primary' variant='outlined' onClick={clickHandler}>View All Repos</ButtonComp>
-              ):(<></>)}
+              )}
           </Box>
           
-          {repoArray}
+          {repoArray.length > 0 ? (<>{repoArray}</>) :
+          (
+            <Paper className={classes.empty_repo__container}> 
+                <Typography variant='subtitle'>No Repositories</Typography>
+            </Paper>
+          )}
           </>
       )
 

@@ -13,7 +13,7 @@ const UserPage = (props) => {
     user = props.match.params.name;
   }
   else user = props.user;
-  
+  console.log('user',user);
   const userData =  useSelector(state => state.userData.user);
   
   
