@@ -1,5 +1,5 @@
 import {CssBaseline} from '@material-ui/core';
-import { BrowserRouter, Switch, Route} from "react-router-dom";
+import { HashRouter as Router, Switch, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage.page";
 import UsersPage from "./pages/UsersPage/Users.page";
 import {withTheme} from './components/Theme/Theme';
@@ -7,7 +7,7 @@ import {withTheme} from './components/Theme/Theme';
 function App(origProps) {
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Router basename={process.env.PUBLIC_URL}>
           <div className="App">  
             <CssBaseline/>      
           <Switch>
@@ -15,7 +15,7 @@ function App(origProps) {
             <Route path='/users/' exact render={(props)=><UsersPage {...props} {...origProps}/>}/>
           </Switch>
           </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
